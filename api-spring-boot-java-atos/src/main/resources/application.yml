@@ -1,0 +1,6 @@
+#spring.application.name=api-spring-boot-java-atos
+spring:
+  application:
+    name: api-spring-boot-java-atos
+server:
+  port: 8081
