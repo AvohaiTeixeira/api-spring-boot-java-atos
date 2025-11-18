@@ -2,5 +2,23 @@
 spring:
   application:
     name: api-spring-boot-java-atos
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/api_spring_boot_java_atos?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: atos
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+    show-sql: false
+    open-in-view: false
+
+logging:
+  level:
+    ##root: WARN Obs: Por padrão o Spring Boot roda o root em nível INFO
+    br.com.atos: DEBUG
+
 server:
   port: 8081
