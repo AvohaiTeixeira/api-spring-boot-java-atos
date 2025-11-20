@@ -16,12 +16,10 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class PersonServices {
 
-    private final AtomicLong counter = new AtomicLong();
     private Logger logger = LoggerFactory.getLogger(PersonServices.class.getName());
 
     @Autowired
