@@ -1,19 +1,35 @@
 #spring.application.name=api-spring-boot-java-atos
+#spring:
+#  application:
+#    name: api-spring-boot-java-atos
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/api_spring_boot_java_atos?useTimezone=true&serverTimezone=UTC
+#    username: root
+#    password: root
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+#    properties:
+#      hibernate:
+#    show-sql: false
+#    open-in-view: false
+
 spring:
-  application:
-    name: api-spring-boot-java-atos
   datasource:
+    url: jdbc:mysql://localhost:3307/mysql_db? useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
+    username: mysql_user
+    password: mysql_password
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/api_spring_boot_java_atos?useTimezone=true&serverTimezone=UTC
-    username: root
-    password: atos
+
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+
   jpa:
     hibernate:
-      ddl-auto: none
-    properties:
-      hibernate:
-    show-sql: false
-    open-in-view: false
+      ddl-auto: validate # O Hibernate apenas confere se o banco está OK, mas o Flyway é quem manda na estrutura
+    show-sql: true
 
 logging:
   level:
@@ -22,3 +38,26 @@ logging:
 
 server:
   port: 8081
+
+
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5433/post_db
+#    username: post_user
+#    password: post_password
+#    driver-class-name: org.postgresql.Driver
+#
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate:
+#      ddl-auto: update # Ou 'validate' se preferir não alterar o banco automaticamente
+#    show-sql: true
+#
+#
+#logging:
+#  level:
+#    ##root: WARN Obs: Por padrão o Spring Boot roda o root em nível INFO
+#    br.com.atos: DEBUG
+#
+#server:
+#  port: 8081
