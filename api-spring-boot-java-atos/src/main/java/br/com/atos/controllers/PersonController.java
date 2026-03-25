@@ -38,7 +38,7 @@ public class PersonController {
       return service.findById(id);
    }
 
-   @CrossOrigin(origins = {"http://localhost:8081", "http://www.erudio.com.br"})
+   @CrossOrigin(origins = {"http://localhost:8082", "http://www.erudio.com.br"})
    @PostMapping(
            consumes = {
                    MediaType.APPLICATION_JSON_VALUE,
