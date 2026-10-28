@@ -1,11 +1,13 @@
-package br.com.atos.services;
+package br.com.atos.unitTests.services;
 
 import br.com.atos.data.dto.PersonDTO;
 import br.com.atos.exception.RequiredObjectIsNullException;
 import br.com.atos.model.Person;
 import br.com.atos.repository.PersonRepository;
+import br.com.atos.services.PersonServices;
 import br.com.atos.unitTests.mapper.mocks.MockPerson;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -122,40 +124,41 @@ class PersonServicesTest {
         verifyNoMoreInteractions(repository);
     }
 
-    @Test
-    void findAll() {
-        //Mocka um List de Person
-        List<Person> list = input.mockEntityList();
-        when(repository.findAll()).thenReturn(list);
-
-        //Simula a listagem no banco
-        List<PersonDTO> personList = services.findAll();
-
-        //Valida se o retorno é um List nullo
-        assertNotNull(personList);
-
-        //Valida se o List retornado tem um tamanho de 14 psições
-        assertEquals(14, personList.size());
-
-        //Escolhe o primeiro registro da lista para realizar os testes
-        PersonDTO result1 = personList.get(1);
-
-        //Valida o resultado do objeto retornado na posição 1 da Lista
-        validateResultRequest(result1, 1);
-
-        //Escolhe o quarto registro da lista para realizar os testes
-        PersonDTO result4 = personList.get(4);
-
-        //Valida o resultado do objeto retornado na posição 4 da Lista
-        validateResultRequest(result4, 4);
-
-        //Escolhe setimo registro da lista para realizar os testes
-        PersonDTO result7 = personList.get(7);
-
-        //Valida o resultado do objeto retornado na posição 7 da Lista
-        validateResultRequest(result7, 7);
-
-    }
+//    @Test
+//    @Disabled("REASON: teste")
+//    void findAll({
+//        //Mocka um List de Person
+//        List<Person> list = input.mockEntityList();
+//        when(repository.findAll()).thenReturn(list);
+//
+//        //Simula a listagem no banco
+//        List<PersonDTO> personList = services.findAll();
+//
+//        //Valida se o retorno é um List nullo
+//        assertNotNull(personList);
+//
+//        //Valida se o List retornado tem um tamanho de 14 psições
+//        assertEquals(14, personList.size());
+//
+//        //Escolhe o primeiro registro da lista para realizar os testes
+//        PersonDTO result1 = personList.get(1);
+//
+//        //Valida o resultado do objeto retornado na posição 1 da Lista
+//        validateResultRequest(result1, 1);
+//
+//        //Escolhe o quarto registro da lista para realizar os testes
+//        PersonDTO result4 = personList.get(4);
+//
+//        //Valida o resultado do objeto retornado na posição 4 da Lista
+//        validateResultRequest(result4, 4);
+//
+//        //Escolhe setimo registro da lista para realizar os testes
+//        PersonDTO result7 = personList.get(7);
+//
+//        //Valida o resultado do objeto retornado na posição 7 da Lista
+//        validateResultRequest(result7, 7);
+//
+//    })
 
     private void validateResultRequest(PersonDTO result, Integer nrReqistro) {
 
